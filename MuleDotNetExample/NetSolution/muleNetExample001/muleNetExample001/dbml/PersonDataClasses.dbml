@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="muleNetDBExample001" Class="PersonDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ANDREW-LAPTOP;Initial Catalog=muleNetDBExample001;User ID=muleNetExampleUser" SettingsObjectName="muleNetExample001.Properties.Settings" SettingsPropertyName="muleNetDBExample001ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PersonDetails" Member="PersonDetails">
+    <Type Name="PersonDetail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="telephone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="PersonDetail_Credential" Member="Credential" ThisKey="id" OtherKey="personID" Type="Credential" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Credentials" Member="Credentials">
+    <Type Name="Credential">
+      <Column Name="personID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="PersonDetail_Credential" Member="PersonDetail" ThisKey="personID" OtherKey="id" Type="PersonDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PersonDataClasses">
+  <DataContextMoniker Name="/PersonDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="db78d309-cb46-4e46-a987-b014dd1f9b3a" absoluteBounds="1.875, 1.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/PersonDataClassesDataContext/PersonDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cbe88bb-59bb-4412-8b7b-d433f6da6d72" absoluteBounds="1.8900000000000001, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="870ebc66-9853-4934-ba78-f70541b6405c" absoluteBounds="4.625, 2, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PersonDataClassesDataContext/Credential" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2982b57-2796-4509-a1b3-f39e7b4b64a4" absoluteBounds="4.64, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 2.69314697265625); (4.625 : 2.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PersonDataClassesDataContext/PersonDetail/PersonDetail_Credential" />
+      <nodes>
+        <classShapeMoniker Id="db78d309-cb46-4e46-a987-b014dd1f9b3a" />
+        <classShapeMoniker Id="870ebc66-9853-4934-ba78-f70541b6405c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
