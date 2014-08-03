@@ -29,8 +29,8 @@ namespace muleNetExample001.objects
         }
 
 
-        private int _Age;
-        public int Age
+        private int? _Age;
+        public int? Age
         {
             get { return _Age; }
             set { _Age = value; }

@@ -42,6 +42,8 @@ namespace muleNetExample001
 
             personDetails.name = name;
             personDetails.surname = surname;
+           
+            personDetails.Credential = new Credential();
             personDetails.Credential.username = username;
             personDetails.Credential.password = password;
 
@@ -63,6 +65,7 @@ namespace muleNetExample001
             personDetails.email = person.Email;
             personDetails.telephone = person.Telephone;
 
+            personDetails.Credential = new Credential();
             personDetails.Credential.username = person.Credential.Username;
             personDetails.Credential.password = person.Credential.Password;
 
@@ -93,6 +96,8 @@ namespace muleNetExample001
                                     Password = p.Credential.password
                                }
                            };
+
+            persons = _persons.ToList<Person>();
 
             return persons;
         }

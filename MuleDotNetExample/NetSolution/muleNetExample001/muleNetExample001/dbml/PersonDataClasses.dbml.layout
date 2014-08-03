@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PersonDataClasses">
   <DataContextMoniker Name="/PersonDataClassesDataContext" />
   <nestedChildShapes>
-    <classShape Id="9c3a8d17-1a20-4598-a8ef-bb02c2c23ab7" absoluteBounds="3.5, 1.25, 2, 1.3862939453125">
+    <classShape Id="df187a80-74e3-4213-99c5-edb479097630" absoluteBounds="3.5, 1.25, 2, 1.3862939453125">
       <DataClassMoniker Name="/PersonDataClassesDataContext/Credential" />
       <nestedChildShapes>
-        <elementListCompartment Id="d1ff2e81-c378-4587-938c-1453080f4f60" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8d66bb66-f23d-44c7-9fea-4867b5657201" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4a636521-35d1-4471-a097-908de4d0e58b" absoluteBounds="0.75, 0.875, 2, 1.9631982421875">
+    <classShape Id="88beb611-ccff-4015-b920-faabd98cb4b8" absoluteBounds="0.75, 0.875, 2, 1.9631982421875">
       <DataClassMoniker Name="/PersonDataClassesDataContext/PersonDetail" />
       <nestedChildShapes>
-        <elementListCompartment Id="d2e61704-ab3c-455d-9c45-ae10ea39c8b3" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="eb972439-d4b4-45c6-b5a3-bc472c96cf89" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.75 : 1.94314697265625); (3.5 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PersonDataClassesDataContext/PersonDetail/PersonDetail_Credential" />
       <nodes>
-        <classShapeMoniker Id="4a636521-35d1-4471-a097-908de4d0e58b" />
-        <classShapeMoniker Id="9c3a8d17-1a20-4598-a8ef-bb02c2c23ab7" />
+        <classShapeMoniker Id="88beb611-ccff-4015-b920-faabd98cb4b8" />
+        <classShapeMoniker Id="df187a80-74e3-4213-99c5-edb479097630" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
