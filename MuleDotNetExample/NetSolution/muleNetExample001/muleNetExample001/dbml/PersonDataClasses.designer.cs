@@ -141,7 +141,7 @@ namespace muleNetExample001.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
 		public string username
 		{
 			get
@@ -161,7 +161,7 @@ namespace muleNetExample001.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
 		public string password
 		{
 			get
