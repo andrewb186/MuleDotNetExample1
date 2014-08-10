@@ -1,0 +1,13 @@
+{
+   "id":666,
+   "name":"abc",
+   "surname":"ppp",
+   "age":9999,
+   "telephone":"dafdsfas",
+   "email":"afdsfds",
+   "credential":{
+      "personID":999,
+      "username":"opfpf",
+      "password":"pass"
+   }
+}
