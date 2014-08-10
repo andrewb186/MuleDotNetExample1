@@ -12,8 +12,6 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
 http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
     <dotnet:config name="DotNet_Connector" assemblyType="muleNetExample001.PersonInterface, muleNetExample001" assemblyPath="G:\Documents\GitHub\MuleDotNetExample1\MuleDotNetExample\NetSolution\muleNetExample001\muleNetExample001\bin\Debug\muleNetExample001.dll" scope="Singleton" doc:name="DotNet Connector"/>
-    <data-mapper:config name="Map_To_Pojo" transformationGraphPath="map_to_pojo.grf" doc:name="Map_To_Pojo"/>
-    <data-mapper:config name="Map_To_JSON" transformationGraphPath="map_to_json.grf" doc:name="Map_To_JSON"/>
     <data-mapper:config name="Map_To_JSON_1" transformationGraphPath="map_to_json_1.grf" doc:name="Map_To_JSON_1"/>
 
     
