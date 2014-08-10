@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:dotnet="http://www.mulesoft.org/schema/mule/dotnet" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:dotnet="http://www.mulesoft.org/schema/mule/dotnet" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.1"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
@@ -9,23 +9,22 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/dotnet/current/mule-dotnet.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
-http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd">
-    <dotnet:config name="DotNet_Connector" assemblyType="muleNetExample001.PersonInterface, muleNetExample001" assemblyPath="D:\GitHub\MuleDotNetExample1\MuleDotNetExample\NetSolution\muleNetExample001\muleNetExample001\bin\Debug\muleNetExample001.dll" scope="Singleton" doc:name="DotNet Connector"/>
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+    <dotnet:config name="DotNet_Connector" assemblyType="muleNetExample001.PersonInterface, muleNetExample001" assemblyPath="G:\Documents\GitHub\MuleDotNetExample1\MuleDotNetExample\NetSolution\muleNetExample001\muleNetExample001\bin\Debug\muleNetExample001.dll" scope="Singleton" doc:name="DotNet Connector"/>
+    <data-mapper:config name="Map_To_Pojo" transformationGraphPath="map_to_pojo.grf" doc:name="Map_To_Pojo"/>
+    <data-mapper:config name="Map_To_JSON" transformationGraphPath="map_to_json.grf" doc:name="Map_To_JSON"/>
+    <data-mapper:config name="Map_To_JSON_1" transformationGraphPath="map_to_json_1.grf" doc:name="Map_To_JSON_1"/>
+
     
     <flow name="mulenetexample_payload" doc:name="mulenetexample_payload">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="setpayload" doc:name="HTTP"/>
-        <set-payload value="#[['id':1]]" doc:name="Set Payload"/>
+        <set-payload value="#[['id':0]]" doc:name="Set Payload"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <dotnet:execute config-ref="DotNet_Connector" methodName="GetPerson" doc:name="DotNet Connector"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
     </flow>
-    
-    <flow name="mulenetexample_datamapper" doc:name="mulenetexample_datamapper">
-        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="datamapper" doc:name="HTTP"/>
-        <http:body-to-parameter-map-transformer doc:name="Body to Parameter Map"/>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
-        <dotnet:execute config-ref="DotNet_Connector" methodName="InsertPerson" doc:name="DotNet Connector"/>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
-    </flow>
+
     
     <flow name="mulenetexample_bodytoparametermap" doc:name="mulenetexample_bodytoparametermap">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="bodytoparametermap" doc:name="HTTP"/>
@@ -34,10 +33,14 @@ http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schem
         <json:object-to-json-transformer doc:name="Object to JSON"/>
     </flow>
     
-    <flow name="mulenetexample1Flow1" doc:name="mulenetexample1Flow1">
-        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="return" doc:name="HTTP"/>
-        <dotnet:execute config-ref="DotNet_Connector" methodName="GetPersons" doc:name="DotNet Connector"/>
+    <flow name="mulenetexample_datamapper" doc:name="mulenetexample_datamapper">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="datamapper" doc:name="HTTP"/>
+        <http:body-to-parameter-map-transformer doc:name="Body to Parameter Map"/>
+        <data-mapper:transform config-ref="Map_To_JSON_1" doc:name="Map To JSON"/>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <dotnet:execute config-ref="DotNet_Connector" methodName="InsertPerson" doc:name="DotNet Connector"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
     </flow>
+    
     
 </mule>

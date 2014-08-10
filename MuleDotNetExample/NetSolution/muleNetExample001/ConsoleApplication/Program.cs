@@ -9,6 +9,8 @@ namespace ConsoleApplication
 {
     class Program
     {
+        static PersonInterface personInterface = new PersonInterface();
+
         static void Main(string[] args)
         {
             TestGetByID();
@@ -22,18 +24,14 @@ namespace ConsoleApplication
 
         static void TestGetByID()
         {
-            PersonInterface getPerson = new PersonInterface();
-            Person person = getPerson.GetPerson(1);
-            
-            Console.WriteLine("Method :: GetByID :: {0} ", (person.ID == 1));            
+            Person person = personInterface.GetPerson(0);
+            Console.WriteLine("Method :: GetByID :: {0} ", (person.ID == 0));            
         }
 
         static void TestInsertPerson(string name, string surname, string username, string password)
         {
-            PersonInterface insertPerson = new PersonInterface();
-            int _id = insertPerson.InsertPerson(name, surname, username, password);
-
-            Console.WriteLine("Method :: InsertPerson(String, String, String, String) :: {0} ", ( _id > 0));            
+            int _id = personInterface.InsertPerson(name, surname, username, password);
+            Console.WriteLine("Method :: InsertPerson(String, String, String, String) :: {0} ", (_id > 0));            
         }
 
         static void TestInsertPerson()
@@ -47,18 +45,14 @@ namespace ConsoleApplication
             p.Credential.Password = "stewie";
             p.Credential.Username = "sgriffin";
 
-
-            PersonInterface insertPerson = new PersonInterface();
-            int id = insertPerson.InsertPerson(p);
+            int id = personInterface.InsertPerson(p);
 
             Console.WriteLine("Method :: InsertPerson(Person) :: {0} ", (id > 0));
         }
 
         static void TestGetAll()
         {
-            PersonInterface getAll = new PersonInterface();
-            List<Person> list = getAll.GetPersons();
-
+            List<Person> list = personInterface.GetPersons();
             Console.WriteLine("Method :: GetPersons() :: {0} ", (list.Count > 0));
         }
 

@@ -7,14 +7,6 @@ namespace muleNetExample001.objects
 {
     public class Credentials
     {
-        private string _PersonID;
-        public string PersonID
-        {
-            get { return _PersonID; }
-            set { _PersonID = value; }
-        }
-
-
         private string _Username;
         public string Username
         {
